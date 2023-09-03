@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'django_filters',
     'tracker'
 ]
@@ -123,3 +124,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+OPEN_WEATHER_API_KEY = '484a47ecf4fdf28f000b1d52d41d94eb'
+COUNTRY_CODE_MAP = {
+    'Frace': 'FR',
+    'Belgium': 'BE',
+    'Spain': 'ES',
+    'Netherlands': 'AW',
+    'Denmark': 'DK',
+    'Germany': 'DE'
+}
+LOCATION_COORDINATION_API = 'http://api.openweathermap.org/geo/1.0/'
+LOCATION_FORCAST_API = 'https://api.openweathermap.org/data/3.0/onecall'
