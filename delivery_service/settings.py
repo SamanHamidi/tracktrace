@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 OPEN_WEATHER_API_KEY = '484a47ecf4fdf28f000b1d52d41d94eb'
 COUNTRY_CODE_MAP = {
-    'Frace': 'FR',
+    'France': 'FR',
     'Belgium': 'BE',
     'Spain': 'ES',
     'Netherlands': 'AW',
