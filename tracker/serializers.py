@@ -6,7 +6,7 @@ from .utils import ForcastUtility
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        exclude = [id]
+        exclude = ['id']
 
 
 class ShipmentSerializer(serializers.ModelSerializer):
