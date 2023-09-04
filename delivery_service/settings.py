@@ -135,3 +135,10 @@ COUNTRY_CODE_MAP = {
 }
 LOCATION_COORDINATION_API = 'http://api.openweathermap.org/geo/1.0/'
 LOCATION_FORCAST_API = 'https://api.openweathermap.org/data/3.0/onecall'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "KEY_FUNCTION": "delivery_service.tracker.cache.key_function"         
+    }
+}
