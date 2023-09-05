@@ -134,11 +134,10 @@ COUNTRY_CODE_MAP = {
     'Germany': 'DE'
 }
 LOCATION_COORDINATION_API = 'http://api.openweathermap.org/geo/1.0/'
-LOCATION_FORCAST_API = 'https://api.openweathermap.org/data/3.0/onecall'
+LOCATION_FORCAST_API = 'http://api.openweathermap.org/data/2.5/weather'
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "KEY_FUNCTION": "tracker.cache.make_key"         
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache"
     }
 }

@@ -18,4 +18,7 @@ class ShipmentSerializer(serializers.ModelSerializer):
         exclude = ['id']
 
     def get_destination_forcast(self, obj):
-        return ForcastUtility(obj).forcast()
+        return ForcastUtility(
+            country=obj.receiver_address.country, 
+            zip_code=obj.receiver_address.zip_code
+            ).forcast()
