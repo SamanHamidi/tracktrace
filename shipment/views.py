@@ -13,5 +13,3 @@ class TrackShipmentViewSet(ReadOnlyModelViewSet):
     http_method_names = ['get']
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = ShipmentFilter
-
-        

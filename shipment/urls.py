@@ -8,5 +8,5 @@ router = DefaultRouter()
 router.register('track', TrackShipmentViewSet, basename='track_shipment')
 
 urlpatterns = [
-    path('api/v1/shipment/', include(router.urls), name='api')
+    path('', include(router.urls), name='api')
 ]

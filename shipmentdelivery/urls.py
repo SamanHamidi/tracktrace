@@ -1,5 +1,5 @@
 """
-URL configuration for delivery_service project.
+URL configuration for shipment delivery project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -20,10 +20,10 @@ from rest_framework.schemas import get_schema_view
 
 urlpatterns = [
     path('openapi', get_schema_view(
-        title="Shipment Tracker",
+        title="Delivery Service App",
         description="Document API",
         version="1.0.0"
         ), 
         name='openapi-schema'),
-    path('', include('tracker.urls'))
+    path('api/v1/shipment/', include('shipment.urls'))    
 ]
