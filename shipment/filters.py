@@ -4,15 +4,14 @@ from django.db import models
 
 from .models import Shipment
 
+
 class ShipmentFilter(FilterSet):
     class Meta:
         model = Shipment
-        fields = ['tracking_number', 'carrier']
+        fields = ["tracking_number", "carrier"]
         filter_overrides = {
             models.CharField: {
-                'filter_class': CharFilter,
-                'extra': lambda f: {
-                    'lookup_expr': 'iexact'
-                }
+                "filter_class": CharFilter,
+                "extra": lambda f: {"lookup_expr": "iexact"},
             }
         }

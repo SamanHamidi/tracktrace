@@ -6,10 +6,11 @@ from .models import Shipment
 from .filters import ShipmentFilter
 from .serializers import ShipmentSerializer
 
+
 class TrackShipmentViewSet(ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
     queryset = Shipment.objects.all()
     serializer_class = ShipmentSerializer
-    http_method_names = ['get']
+    http_method_names = ["get"]
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = ShipmentFilter

@@ -5,8 +5,6 @@ from .views import TrackShipmentViewSet
 
 router = DefaultRouter()
 
-router.register('track', TrackShipmentViewSet, basename='track_shipment')
+router.register("track", TrackShipmentViewSet, basename="track_shipment")
 
-urlpatterns = [
-    path('', include(router.urls), name='api')
-]
+urlpatterns = [path("", include(router.urls), name="api")]
