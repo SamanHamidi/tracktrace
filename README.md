@@ -83,12 +83,6 @@ Please note that you can combine the two query parameters. Such that:
 
 ## Running Tests
 
-To run tests, run the following command
-
-```bash
-  npm run test
-```
-
 This project includes a number of unit and component tests.
 
 To run these tests run the commands below after going throught the installation process: 
