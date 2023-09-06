@@ -141,3 +141,5 @@ CACHES = {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache"
     }
 }
+
+CACHE_TIMEOUT = 2*3600

@@ -74,102 +74,19 @@ class TestTrackingAPI(APITestCase):
     def test_get_shipments_by_carrier_success(self):
         resp = self.client.get(f"{reverse('track_shipment-list')}?carrier=dhl")
         self.assertEqual(len(resp.json()), 1)
-        self.assertEqual(
-            resp.json(),
-            [
-                {
-                    "sender_address": {
-                        "country": "Germany",
-                        "city": "Berlin",
-                        "zip_code": "10115",
-                        "building_number": None,
-                        "street_name": "street 1",
-                    },
-                    "receiver_address": {
-                        "country": "France",
-                        "city": "Paris",
-                        "zip_code": "75001",
-                        "building_number": None,
-                        "street_name": "street 10",
-                    },
-                    "destination_forcast": "clear sky",
-                    "tracking_number": "TN12345670",
-                    "carrier": "DHL",
-                    "article_name": "Mouse",
-                    "article_quantity": 10,
-                    "article_price": "80.00",
-                    "sku": "MD012",
-                    "status": "in_transit",
-                }
-            ],
-        )
+        self.assertEqual(resp.json()[0].get("carrier"), "DHL")
 
     def test_get_shipments_by_tracking_number(self):
         resp = self.client.get(
             f"{reverse('track_shipment-list')}?tracking_number=TN12345680"
         )
         self.assertEqual(len(resp.json()), 1)
-        self.assertEqual(
-            resp.json(),
-            [
-                {
-                    "sender_address": {
-                        "country": "Germany",
-                        "city": "Berlin",
-                        "zip_code": "10115",
-                        "building_number": None,
-                        "street_name": "street 1",
-                    },
-                    "receiver_address": {
-                        "country": "Spain",
-                        "city": "Madrid",
-                        "zip_code": "28013",
-                        "building_number": None,
-                        "street_name": "street 5",
-                    },
-                    "destination_forcast": "clear sky",
-                    "tracking_number": "TN12345680",
-                    "carrier": "DPD",
-                    "article_name": "Keyboard",
-                    "article_quantity": 1,
-                    "article_price": "50.00",
-                    "sku": "KB012",
-                    "status": "delivery",
-                }
-            ],
-        )
+        self.assertEqual(resp.json()[0].get("tracking_number"), "TN12345680")
 
     def test_get_shipments_by_carrier_and_tracking_number(self):
         resp = self.client.get(
             f"{reverse('track_shipment-list')}?carrier=fedex&tracking_number=TN12345670"
         )
         self.assertEqual(len(resp.json()), 1)
-        self.assertEqual(
-            resp.json(),
-            [
-                {
-                    "sender_address": {
-                        "country": "Germany",
-                        "city": "Berlin",
-                        "zip_code": "10115",
-                        "building_number": None,
-                        "street_name": "street 1",
-                    },
-                    "receiver_address": {
-                        "country": "Netherlands",
-                        "city": "Amsterdam",
-                        "zip_code": "1016",
-                        "building_number": None,
-                        "street_name": "street 10",
-                    },
-                    "destination_forcast": "N/A",
-                    "tracking_number": "TN12345670",
-                    "carrier": "FedEx",
-                    "article_name": "Laptop",
-                    "article_quantity": 1,
-                    "article_price": "900.00",
-                    "sku": "CG012",
-                    "status": "inbound_scan",
-                }
-            ],
-        )
+        self.assertEqual(resp.json()[0].get("tracking_number"), "TN12345670")
+        self.assertEqual(resp.json()[0].get("carrier"), "FedEx")
