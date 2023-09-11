@@ -5,10 +5,10 @@ class Shipment(models.Model):
     tracking_number = models.CharField(blank=False, null=False, max_length=10)
     carrier = models.CharField(blank=True, null=True, max_length=5)
     sender_address = models.ForeignKey(
-        "Address", on_delete=models.CASCADE, related_name="sender_address"
+        "Address", on_delete=models.PROTECT, related_name="sender_addresses"
     )
     receiver_address = models.ForeignKey(
-        "Address", on_delete=models.CASCADE, related_name="receiver_address"
+        "Address", on_delete=models.PROTECT, related_name="receiver_addresses"
     )
     article_name = models.CharField(
         blank=True, null=False, default="undisclosed-item", max_length=128
